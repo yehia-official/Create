@@ -148,8 +148,7 @@ export default function CertificatePage() {
               </h1>
 
               <p className="text-xs sm:text-sm text-muted-foreground max-w-xl mx-auto">
-                Congratulations on earning this certification. You stayed committed, put in the work, and it shows. This accomplishment wasn’t easy, but you earned it. Be proud of this step, and keep pushing forward — there’s more ahead for you.
-              </p>
+                Congratulations on earning this certification. You stayed committed, put in the work, and it shows. This accomplishment wasn’t easy, but you earned it. Be proud of this step, and keep pushing forward.
 
               <p className="text-sm sm:text-lg text-muted-foreground pt-2 sm:pt-4">
                 {isRtl ? "تُمنح هذه الشهادة إلى" : "This certificate is proudly presented to"}
