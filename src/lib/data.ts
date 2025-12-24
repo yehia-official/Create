@@ -1,0 +1,308 @@
+
+import type { Exam, User, Question } from './types';
+
+export const sampleExam: Exam = {
+  id: 'math-101',
+  title: 'Mathematics Final Exam',
+  titleAr: 'امتحان الرياضيات النهائي',
+  subject: 'Mathematics',
+  duration: 60, // 60 minutes
+  questions: [
+    {
+      id: 'q1',
+      text: 'What is 2 + 2?',
+      textAr: 'ما هو حاصل جمع 2 + 2؟',
+      type: 'multiple-choice',
+      options: ['3', '4', '5', '6'],
+      answer: '4',
+      points: 10,
+      subject: 'Mathematics'
+    },
+    {
+      id: 'q2',
+      text: 'The square root of 81 is 9.',
+      textAr: 'الجذر التربيعي للعدد 81 هو 9.',
+      type: 'true-false',
+      answer: true,
+      points: 10,
+      subject: 'Mathematics'
+    },
+    {
+      id: 'q3',
+      text: 'What is the capital of France?',
+      textAr: 'ما هي عاصمة فرنسا؟',
+      type: 'short-text',
+      answer: 'Paris',
+      points: 10,
+      subject: 'Geography'
+    },
+    {
+      id: 'q4',
+      text: 'Solve for x: 3x - 7 = 14',
+      textAr: 'أوجد قيمة س: 3س - 7 = 14',
+      type: 'short-text',
+      answer: '7',
+      points: 20,
+      subject: 'Mathematics'
+    },
+    {
+      id: 'q5',
+      text: 'Which planet is known as the Red Planet? (See image)',
+      textAr: 'أي كوكب يعرف بالكوكب الأحمر؟ (انظر الصورة)',
+      type: 'multiple-choice',
+      options: ['Earth', 'Mars', 'Jupiter', 'Saturn'],
+      optionsAr: ['الأرض', 'المريخ', 'المشتري', 'زحل'],
+      answer: 'Mars',
+      points: 10,
+      subject: 'Science',
+      mediaUrl: 'https://images.unsplash.com/photo-1614728263952-84ea256ec677?q=80&w=2070&auto=format&fit=crop',
+      mediaType: 'image',
+    },
+    {
+      id: 'q6',
+      text: 'Water boils at 100 degrees Celsius.',
+      textAr: 'الماء يغلي عند 100 درجة مئوية.',
+      type: 'true-false',
+      answer: true,
+      points: 10,
+      subject: 'Science'
+    },
+    {
+        id: 'q7',
+        text: 'What is the value of Pi (to two decimal places)?',
+        textAr: 'ما هي قيمة "باي" (مقربة لمنزلتين عشريتين)؟',
+        type: 'short-text',
+        answer: '3.14',
+        points: 10,
+        subject: 'Mathematics'
+    },
+    {
+        id: 'q8',
+        text: 'The chemical symbol for Gold is Au.',
+        textAr: 'الرمز الكيميائي للذهب هو Au.',
+        type: 'true-false',
+        answer: true,
+        points: 10,
+        subject: 'Chemistry'
+    },
+    {
+        id: 'q9',
+        text: 'Which of these is a prime number?',
+        textAr: 'أي من هذه الأعداد هو عدد أولي؟',
+        type: 'multiple-choice',
+        options: ['9', '15', '17', '21'],
+        answer: '17',
+        points: 10,
+        subject: 'Mathematics'
+    }
+  ],
+};
+
+export const questionBank: Question[] = [
+    {
+      id: 'qb1',
+      text: 'What is the chemical formula for water?',
+      type: 'short-text',
+      answer: 'H2O',
+      points: 5,
+      subject: 'Chemistry'
+    },
+    {
+      id: 'qb2',
+      text: 'Who wrote "Hamlet"?',
+      type: 'short-text',
+      answer: 'William Shakespeare',
+      points: 10,
+      subject: 'Literature'
+    },
+    {
+      id: 'qb3',
+      text: 'The Earth revolves around the Sun.',
+      type: 'true-false',
+      answer: true,
+      points: 5,
+      subject: 'Science'
+    },
+    {
+      id: 'qb4',
+      text: 'Which of the following is a programming language?',
+      type: 'multiple-choice',
+      options: ['HTML', 'JPEG', 'Python', 'CSS'],
+      answer: 'Python',
+      points: 10,
+      subject: 'Computer Science'
+    },
+     {
+      id: 'qb5',
+      text: 'What is the largest continent by area?',
+      type: 'short-text',
+      answer: 'Asia',
+      points: 5,
+      subject: 'Geography'
+    },
+];
+
+
+export let exams = [
+    {
+        id: 'math-101',
+        title: 'Mathematics Final Exam',
+        titleAr: 'امتحان الرياضيات النهائي',
+        subject: 'Mathematics',
+        subjectAr: 'الرياضيات',
+        status: 'Not Started',
+        statusAr: 'لم يبدأ',
+        questionsCount: 9,
+        duration: 60,
+    },
+    {
+        id: 'history-202',
+        title: 'World History Mid-term',
+        titleAr: 'امتحان منتصف الفصل للتاريخ العالمي',
+        subject: 'History',
+        subjectAr: 'التاريخ',
+        status: 'Completed',
+        statusAr: 'مكتمل',
+        questionsCount: 25,
+        duration: 50,
+        score: '88%',
+    },
+    {
+        id: 'science-301',
+        title: 'Physics Practical Test',
+        titleAr: 'اختبار الفيزياء العملي',
+        subject: 'Science',
+        subjectAr: 'العلوم',
+        status: 'In Progress',
+        statusAr: 'قيد التنفيذ',
+        questionsCount: 15,
+        duration: 90,
+    },
+    {
+        id: 'literature-101',
+        title: 'Modern Literature',
+        titleAr: 'الأدب الحديث',
+        subject: 'Literature',
+        subjectAr: 'الأدب',
+        status: 'Not Started',
+        statusAr: 'لم يبدأ',
+        questionsCount: 30,
+        duration: 75,
+    },
+    {
+        id: 'chemistry-201',
+        title: 'Organic Chemistry',
+        titleAr: 'الكيمياء العضوية',
+        subject: 'Chemistry',
+        subjectAr: 'الكيمياء',
+        status: 'Completed',
+        statusAr: 'مكتمل',
+        questionsCount: 40,
+        duration: 90,
+        score: '92%',
+    },
+    {
+        id: 'art-101',
+        title: 'Art History Introduction',
+        titleAr: 'مقدمة في تاريخ الفن',
+        subject: 'Art History',
+        subjectAr: 'تاريخ الفن',
+        status: 'Not Started',
+        statusAr: 'لم يبدأ',
+        questionsCount: 20,
+        duration: 45,
+    },
+    {
+        id: 'geography-102',
+        title: 'World Geography',
+        titleAr: 'جغرافيا العالم',
+        subject: 'Geography',
+        subjectAr: 'الجغرافيا',
+        status: 'In Progress',
+        statusAr: 'قيد التنفيذ',
+        questionsCount: 35,
+        duration: 60,
+    },
+    {
+        id: 'computer-science-101',
+        title: 'Intro to Programming',
+        titleAr: 'مقدمة في البرمجة',
+        subject: 'Computer Science',
+        subjectAr: 'علوم الحاسب',
+        status: 'Completed',
+        statusAr: 'مكتمل',
+        questionsCount: 15,
+        duration: 120,
+        score: '95%',
+    },
+    {
+        id: 'thanawya-arabic-1',
+        title: 'Arabic Language Exam (Thanaweya)',
+        titleAr: 'امتحان اللغة العربية (ثانوية عامة)',
+        subject: 'Arabic',
+        subjectAr: 'اللغة العربية',
+        status: 'Not Started',
+        statusAr: 'لم يبدأ',
+        questionsCount: 50,
+        duration: 180,
+    },
+    {
+        id: 'thanawya-physics-1',
+        title: 'Physics Exam (Thanaweya)',
+        titleAr: 'امتحان الفيزياء (ثانوية عامة)',
+        subject: 'Physics',
+        subjectAr: 'الفيزياء',
+        status: 'Not Started',
+        statusAr: 'لم يبدأ',
+        questionsCount: 45,
+        duration: 180,
+    },
+    {
+        id: 'thanawya-chemistry-1',
+        title: 'Chemistry Exam (Thanaweya)',
+        titleAr: 'امتحان الكيمياء (ثانوية عامة)',
+        subject: 'Chemistry',
+        subjectAr: 'الكيمياء',
+        status: 'In Progress',
+        statusAr: 'قيد التنفيذ',
+        questionsCount: 45,
+        duration: 180,
+    },
+    {
+        id: 'thanawya-english-1',
+        title: 'English Language Exam (Thanaweya)',
+        titleAr: 'امتحان اللغة الإنجليزية (ثانوية عامة)',
+        subject: 'English',
+        subjectAr: 'اللغة الإنجليزية',
+        status: 'Completed',
+        statusAr: 'مكتمل',
+        questionsCount: 50,
+        duration: 180,
+        score: '91%',
+    },
+    {
+        id: 'thanawya-geology-1',
+        title: 'Geology & Environmental Sc. (Thanaweya)',
+        titleAr: 'امتحان الجيولوجيا والعلوم البيئية (ثانوية عامة)',
+        subject: 'Geology',
+        subjectAr: 'الجيولوجيا',
+        status: 'Not Started',
+        statusAr: 'لم يبدأ',
+        questionsCount: 45,
+        duration: 180,
+    }
+]
+
+export const users: User[] = [
+    { id: 'user-1', name: 'Yehia Mohammed', email: 'yehia.mohammed@example.com', guardianEmail: 'guardian.yehia@example.com', role: 'student', status: 'Active' },
+    { id: 'user-2', name: 'Fatima Zahra', email: 'fatima.zahra@example.com', role: 'student', status: 'Active' },
+    { id: 'user-3', name: 'Youssef Mohamed', email: 'youssef.mohamed@example.com', role: 'student', status: 'Inactive' },
+    { id: 'user-4', name: 'Dr. Mona Khalil', email: 'mona.khalil@example.com', role: 'teacher', status: 'Active' },
+    { id: 'user-5', name: 'Mr. Tarek Adel', email: 'tarek.adel@example.com', role: 'teacher', status: 'Active' },
+    { id: 'user-6', name: 'Admin User', email: 'admin@example.com', role: 'admin', status: 'Active' },
+    { id: 'user-7', name: 'Nour Hassan', email: 'nour.hassan@example.com', role: 'student', status: 'Active' },
+    { id: 'user-8', name: 'Khaled Said', email: 'khaled.said@example.com', role: 'student', status: 'Active' },
+    { id: 'user-9', name: 'Ms. Hoda Salah', email: 'hoda.salah@example.com', role: 'teacher', status: 'Inactive' },
+    { id: 'user-10', name: 'Omar Sherif', email: 'omar.sherif@example.com', role: 'student', status: 'Active' },
+];
+

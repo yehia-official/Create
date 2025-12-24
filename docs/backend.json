@@ -1,0 +1,323 @@
+
+{
+  "entities": {
+    "User": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "User",
+      "type": "object",
+      "description": "Represents a user of the Academia Exam Platform.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the User entity."
+        },
+        "username": {
+          "type": "string",
+          "description": "The username of the user."
+        },
+        "email": {
+          "type": "string",
+          "description": "The email address of the user.",
+          "format": "email"
+        },
+        "guardianEmail": {
+          "type": "string",
+          "description": "The email address of the user's guardian.",
+          "format": "email"
+        },
+        "role": {
+          "type": "string",
+          "description": "The role of the user (e.g., student, teacher, admin)."
+        }
+      },
+      "required": [
+        "id",
+        "username",
+        "email",
+        "role"
+      ]
+    },
+    "Exam": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Exam",
+      "type": "object",
+      "description": "Represents an exam in the Academia Exam Platform.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Exam entity."
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the exam."
+        },
+        "description": {
+          "type": "string",
+          "description": "A brief description of the exam."
+        },
+        "startTime": {
+          "type": "string",
+          "description": "The date and time when the exam starts.",
+          "format": "date-time"
+        },
+        "endTime": {
+          "type": "string",
+          "description": "The date and time when the exam ends.",
+          "format": "date-time"
+        },
+        "teacherId": {
+          "type": "string",
+          "description": "Reference to Teacher. (Relationship: Teacher 1:N Exam)"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "startTime",
+        "endTime",
+        "teacherId"
+      ]
+    },
+    "Question": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Question",
+      "type": "object",
+      "description": "Represents a question in an exam.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Question entity."
+        },
+        "examId": {
+          "type": "string",
+          "description": "Reference to Exam. (Relationship: Exam 1:N Question)"
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of question (e.g., multiple choice, short text, true/false)."
+        },
+        "text": {
+          "type": "string",
+          "description": "The text of the question."
+        },
+        "options": {
+          "type": "array",
+          "description": "Array of possible answers for multiple choice questions.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "correctAnswer": {
+          "type": "string",
+          "description": "The correct answer for the question."
+        }
+      },
+      "required": [
+        "id",
+        "examId",
+        "type",
+        "text",
+        "correctAnswer"
+      ]
+    },
+    "StudentExam": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "StudentExam",
+      "type": "object",
+      "description": "Represents a student's completed exam attempt, storing their answers and results.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the StudentExam entity."
+        },
+        "studentId": {
+          "type": "string",
+          "description": "Reference to the Student (User). (Relationship: Student 1:N StudentExam)"
+        },
+        "examId": {
+          "type": "string",
+          "description": "Reference to the Exam. (Relationship: Exam 1:N StudentExam)"
+        },
+        "score": {
+          "type": "number",
+          "description": "The student's final score for this attempt."
+        },
+        "maxScore": {
+          "type": "number",
+          "description": "The maximum possible score for the exam."
+        },
+        "percentage": {
+          "type": "number",
+          "description": "The student's score as a percentage."
+        },
+        "passed": {
+          "type": "boolean",
+          "description": "Indicates whether the student passed the exam."
+        },
+        "timeTaken": {
+          "type": "number",
+          "description": "The time in seconds the student took to complete the exam."
+        },
+        "attemptNumber": {
+          "type": "number",
+          "description": "Which attempt number this result represents."
+        },
+        "submittedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp when the exam was submitted."
+        },
+        "answers": {
+          "type": "array",
+          "description": "An array of the student's answers.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "questionId": {
+                "type": "string"
+              },
+              "value": {
+                "type": [
+                  "string",
+                  "boolean",
+                  "null",
+                  "object"
+                ]
+              }
+            },
+            "required": [
+              "questionId"
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "studentId",
+        "examId",
+        "score",
+        "maxScore",
+        "percentage",
+        "passed",
+        "timeTaken",
+        "attemptNumber",
+        "submittedAt",
+        "answers"
+      ]
+    },
+    "StudentAnswer": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "StudentAnswer",
+      "type": "object",
+      "description": "Represents a student's answer to a question in an exam.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the StudentAnswer entity."
+        },
+        "studentExamId": {
+          "type": "string",
+          "description": "Reference to StudentExam. (Relationship: StudentExam 1:N StudentAnswer)"
+        },
+        "questionId": {
+          "type": "string",
+          "description": "Reference to Question. (Relationship: Question 1:N StudentAnswer)"
+        },
+        "answer": {
+          "type": "string",
+          "description": "The student's answer to the question."
+        },
+        "isCorrect": {
+          "type": "boolean",
+          "description": "Indicates whether the student's answer is correct."
+        }
+      },
+      "required": [
+        "id",
+        "studentExamId",
+        "questionId",
+        "answer",
+        "isCorrect"
+      ]
+    },
+    "Sheet": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Sheet",
+      "type": "object",
+      "description": "Represents an assignment sheet given by a teacher.",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier for the sheet." },
+        "title": { "type": "string", "description": "The title of the assignment sheet." },
+        "subject": { "type": "string", "description": "The subject of the assignment." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Timestamp of when the sheet was created." },
+        "deadline": { "type": "string", "format": "date-time", "description": "The submission deadline for the sheet." },
+        "teacherId": { "type": "string", "description": "The ID of the teacher who created the sheet." }
+      },
+      "required": ["id", "title", "subject", "createdAt", "deadline", "teacherId"]
+    },
+    "Submission": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Submission",
+      "type": "object",
+      "description": "Represents a student's submission for an assignment sheet.",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier for the submission, usually studentId_sheetId." },
+        "sheetId": { "type": "string", "description": "Reference to the Sheet." },
+        "studentId": { "type": "string", "description": "Reference to the Student (User)." },
+        "submittedAt": { "type": "string", "format": "date-time", "description": "Timestamp of when the work was submitted." },
+        "fileUrl": { "type": "string", "format": "uri", "description": "URL to an uploaded file for the submission." },
+        "textSubmission": { "type": "string", "description": "Text-based submission or a link." },
+        "grade": { "type": ["number", "null"], "description": "The numerical grade given by the teacher." },
+        "feedback": { "type": ["string", "null"], "description": "Feedback from the teacher." },
+        "gradedAt": { "type": "string", "format": "date-time", "description": "Timestamp of when the submission was graded." },
+        "sheetTitle": { "type": "string", "description": "Denormalized title of the sheet for easy display." },
+        "sheetSubject": { "type": "string", "description": "Denormalized subject of the sheet for easy display." }
+      },
+      "required": ["id", "sheetId", "studentId", "submittedAt"]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous",
+      "google.com"
+    ]
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": {
+        "$ref": "#/entities/User"
+      },
+      "description": "Stores user data including optional guardian email. User documents are only accessible to the user themselves and admins."
+    },
+    "/exams/{examId}": {
+      "schema": {
+        "$ref": "#/entities/Exam"
+      },
+      "description": "Stores exam data. Exams are owned by teachers, so access is limited to the creating teacher and admins. Includes denormalized 'teacherId' for authorization independence."
+    },
+    "/exams/{examId}/questions/{questionId}": {
+      "schema": {
+        "$ref": "#/entities/Question"
+      },
+      "description": "Stores questions for an exam. Only accessible to the teacher who owns the exam and admins. Includes denormalized 'examId' and 'teacherId' for authorization independence."
+    },
+    "/studentExams/{studentExamId}": {
+      "schema": {
+        "$ref": "#/entities/StudentExam"
+      },
+      "description": "Stores a student's completed exam attempt. This collection is public for report generation."
+    },
+    "/sheets/{sheetId}": {
+      "schema": { "$ref": "#/entities/Sheet" },
+      "description": "Stores assignment sheets. Teachers can create/manage their own sheets. Students can read all sheets."
+    },
+    "/submissions/{submissionId}": {
+      "schema": { "$ref": "#/entities/Submission" },
+      "description": "Stores student submissions for sheets. Students can create/read their own. Teachers can read all submissions for their sheets and update them with grades."
+    }
+  }
+}
+
+    
