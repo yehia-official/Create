@@ -133,43 +133,43 @@ export default function CertificatePage() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="w-full max-w-4xl aspect-[16/9] bg-background text-foreground print:shadow-none print:border-0"
+          className="w-full max-w-4xl sm:aspect-[16/9] bg-background text-foreground print:shadow-none print:border-0"
         >
           <div className="w-full h-full border-8 border-primary dark:border-accent p-6 sm:p-10 rounded-lg shadow-2xl bg-background relative overflow-hidden flex flex-col items-center justify-center">
             <div className="absolute top-0 left-0 w-full h-full bg-grid-pattern opacity-10 dark:opacity-5"></div>
             
-            <div className="relative text-center flex flex-col items-center justify-center flex-grow space-y-4">
+            <div className="relative text-center flex flex-col items-center justify-center flex-grow space-y-2 sm:space-y-4">
               <div className="flex justify-center items-center gap-2">
                    <div className="text-3xl font-bold font-headline text-primary">Qui<span className="text-accent">zzy</span></div>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl font-bold font-headline text-primary dark:text-accent">
+              <h1 className="text-2xl sm:text-4xl font-bold font-headline text-primary dark:text-accent">
                 {isRtl ? "شهادة إتمام" : "Certificate of Achievement"}
               </h1>
 
-              <p className="text-sm text-muted-foreground max-w-xl mx-auto">
+              <p className="text-xs sm:text-sm text-muted-foreground max-w-xl mx-auto">
                 Congratulations on earning this certification. You stayed committed, put in the work, and it shows. This accomplishment wasn’t easy, but you earned it. Be proud of this step, and keep pushing forward — there’s more ahead for you.
               </p>
 
-              <p className="text-base sm:text-lg text-muted-foreground pt-4">
+              <p className="text-sm sm:text-lg text-muted-foreground pt-2 sm:pt-4">
                 {isRtl ? "تُمنح هذه الشهادة إلى" : "This certificate is proudly presented to"}
               </p>
 
-              <h2 className="text-2xl sm:text-4xl font-semibold tracking-wider">
+              <h2 className="text-xl sm:text-4xl font-semibold tracking-wider">
                 {studentName}
               </h2>
 
-              <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto">
                 {isRtl ? "لإكماله بنجاح اختبار" : "For successfully completing the exam"}
               </p>
-              <h3 className="text-xl sm:text-2xl font-bold font-headline">
+              <h3 className="text-lg sm:text-2xl font-bold font-headline">
                 {isRtl ? examDetails.titleAr : examDetails.title}
               </h3>
             </div>
 
              <div className="relative flex justify-around items-end text-center pt-6 text-xs sm:text-sm text-muted-foreground w-full">
                   <div className="w-1/3">
-                      <p className="font-semibold text-sm sm:text-base">{isRtl ? "تاريخ الإكمال" : "Date of Completion"}</p>
+                      <p className="font-semibold text-xs sm:text-base">{isRtl ? "تاريخ الإكمال" : "Date of Completion"}</p>
                       <div className="border-t-2 border-muted mt-2 pt-2">
                         <p>{currentDate}</p>
                       </div>
@@ -177,11 +177,11 @@ export default function CertificatePage() {
                    <div className="w-1/3">
                         <p className="font-['Allura'] text-2xl sm:text-4xl text-foreground -mb-2">Quizzy Platform</p>
                          <div className="border-t-2 border-muted mt-2 pt-2">
-                             <p className="font-semibold text-sm sm:text-base">Quizzy</p>
+                             <p className="font-semibold text-xs sm:text-base">Quizzy</p>
                          </div>
                      </div>
                    <div className="w-1/3">
-                      <p className="font-semibold text-sm sm:text-base">{isRtl ? "النتيجة المحققة" : "Achieved Score"}</p>
+                      <p className="font-semibold text-xs sm:text-base">{isRtl ? "النتيجة المحققة" : "Achieved Score"}</p>
                        <div className="border-t-2 border-muted mt-2 pt-2">
                         <p>{result.percentage.toFixed(2)}%</p>
                       </div>
