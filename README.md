@@ -2,7 +2,7 @@
 <div dir="rtl">
 
 # 📖 تقرير فني شامل لمشروع: منصة الاختبارات الإلكترونية "Quizzy"
-
+https://www.canva.com/design/DAHBYhVol8k/TVEoJjK5HuUgwpWiYvx7ag/view?utm_content=DAHBYhVol8k&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h03ab8a1f17
 ---
 
 ## **المحتويات**
