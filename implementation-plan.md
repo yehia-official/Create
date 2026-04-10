@@ -1,5 +1,5 @@
 # Quizzy — Academic E-Examination Platform
-## Implementation Plan · v1.0
+## Implementation Plan · 
 > **Classification:** Technical Reference · **Audience:** Engineering Team  
 > **Stack:** Next.js 15 · TypeScript · Firebase · Genkit AI · ShadCN UI · Tailwind CSS  
 > **Last Updated:** April 2026
