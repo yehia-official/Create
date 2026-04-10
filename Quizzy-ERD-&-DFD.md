@@ -2,7 +2,7 @@
 
 > **Project:** Quizzy — Academic E-Examination Platform  
 > **Standard:** 3NF-Normalized Relational Model mapped from a Firestore NoSQL design  
-> **Date:** 2026-04-07
+> **Date:** 2025-09-07
 
 ---
 
