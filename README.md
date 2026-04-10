@@ -1,330 +1,755 @@
+<div align="center">
 
-<div dir="rtl">
+<br />
 
-# 📖 تقرير فني شامل لمشروع: منصة الاختبارات الإلكترونية "Quizzy"
-[https://www.canva.com/design/DAHBYhVol8k/TVEoJjK5HuUgwpWiYvx7ag/view?utm_content=DAHBYhVol8k&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h03ab8a1f17](https://canva.link/unhe34cz78k9wby)
----
+```
+  ██████╗ ██╗   ██╗██╗███████╗███████╗██╗   ██╗
+ ██╔═══██╗██║   ██║██║╚══███╔╝╚══███╔╝╚██╗ ██╔╝
+ ██║   ██║██║   ██║██║  ███╔╝   ███╔╝  ╚████╔╝
+ ██║▄▄ ██║██║   ██║██║ ███╔╝   ███╔╝    ╚██╔╝
+ ╚██████╔╝╚██████╔╝██║███████╗███████╗   ██║
+  ╚══▀▀═╝  ╚═════╝ ╚═╝╚══════╝╚══════╝   ╚═╝
+```
 
-## **المحتويات**
+### Academic E-Examination Platform
 
-1.  [**مقدمة ورؤية المشروع**](#1-مقدمة-ورؤية-المشروع-introduction--vision)
-    *   [1.1. اسم المشروع](#11-اسم-المشروع)
-    *   [1.2. الرؤية (Vision)](#12-الرؤية-vision)
-    *   [1.3. المشكلة المستهدفة (Problem Statement)](#13-المشكلة-المستهدفة-problem-statement)
-    *   [1.4. الجمهور المستهدف (Target Audience)](#14-الجمهور-المستهدف-target-audience)
-2.  [**تحليل الميزات والوظائف (Features & Functionality)**](#2-تحليل-الميزات-والوظائف-features--functionality)
-    *   [2.1. واجهة الطالب (Student Interface)](#21-واجهة-الطالب-student-interface)
-    *   [2.2. واجهة المدرس (Teacher Interface)](#22-واجهة-المدرس-teacher-interface)
-    *   [2.3. واجهة المسؤول (Admin Interface)](#23-واجهة-المسؤول-admin-interface)
-3.  [**الهندسة التقنية والبنية التحتية (Technical Architecture)**](#3-الهندسة-التقنية-والبنية-التحتية-technical-architecture)
-    *   [3.1. التقنيات الأساسية (Core Technologies)](#31-التقنيات-الأساسية-core-technologies)
-    *   [3.2. بنية الواجهة الأمامية (Frontend Architecture)](#32-بنية-الواجهة-الأمامية-frontend-architecture)
-    *   [3.3. بنية الواجهة الخلفية (Backend Architecture)](#33-بنية-الواجهة-الخلفية-backend-architecture)
-4.  [**تصميم وتطبيق المفاهيم البرمجية (Software Design & Implementation)**](#4-تصميم-وتطبيق-المفاهيم-البرمجية-software-design--implementation)
-    *   [4.1. نموذج البيانات في Firestore (Data Model)](#41-نموذج-البيانات-في-firestore-data-model)
-    *   [4.2. إدارة الحالة (State Management)](#42-إدارة-الحالة-state-management)
-    *   [4.3. التوجيه والتنقل (Routing)](#43-التوجيه-والتنقل-routing)
-    *   [4.4. استيراد الأسئلة باستخدام الذكاء الاصطناعي](#44-استيراد-الأسئلة-باستخدام-الذكاء-الاصطناعي-genkit)
-5.  [**الأمان والصلاحيات (Security & Authorization)**](#5-الأمان-والصلاحيات-security--authorization)
-    *   [5.1. المصادقة (Authentication)](#51-المصادقة-authentication)
-    *   [5.2. الصلاحيات (Authorization)](#52-الصلاحيات-authorization)
-    *   [5.3. قواعد أمان Firestore (Security Rules)](#53-قواعد-أمان-firestore-security-rules)
-6.  [**تجربة المستخدم وتصميم الواجهة (UI/UX Design)**](#6-تجربة-المستخدم-وتصميم-الواجهة-uiux-design)
-    *   [6.1. فلسفة التصميم](#61-فلسفة-التصميم)
-    *   [6.2. نظام التصميم (Design System)](#62-نظام-التصميم-design-system)
-7.  [**الخاتمة والتوجهات المستقبلية**](#7-الخاتمة-والتوجهات-المستقبلية-conclusion--future-work)
+**A full-stack, AI-powered examination platform for the modern digital classroom.**  
+Built for institutions, designed for teachers, optimized for students.
+
+<br />
+
+![Next.js](https://img.shields.io/badge/Next.js-15.x-black?style=for-the-badge&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-11.x-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.x-38BDF8?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Genkit AI](https://img.shields.io/badge/Genkit-AI-4285F4?style=for-the-badge&logo=google&logoColor=white)
+
+<br />
+
+[Live Demo](#) · [Report Bug](#) · [Request Feature](#) · [Documentation](#)
+
+</div>
 
 ---
 
-## **1. مقدمة ورؤية المشروع (Introduction & Vision)**
+## 📋 Table of Contents
 
-### **1.1. اسم المشروع**
-**Quizzy** - منصة الاختبارات الإلكترونية الأكاديمية.
-
-### **1.2. الرؤية (Vision)**
-تتمثل رؤيتنا في بناء نظام إلكتروني متكامل لإدارة الاختبارات الأكاديمية، يتميز بالحداثة، المرونة، وسهولة الاستخدام. يهدف المشروع إلى إحداث نقلة نوعية في قطاع التعليم من خلال توفير حل شامل للمؤسسات التعليمية يمكّنها من إنشاء، إدارة، وإجراء الاختبارات وتقييمها بكفاءة عالية، مع التركيز على تحسين التجربة التعليمية الرقمية لكل من الطالب والمدرس.
-
-### **1.3. المشكلة المستهدفة (Problem Statement)**
-في ظل التحول الرقمي المتسارع، لا تزال العديد من المؤسسات التعليمية تعتمد على الطرق التقليدية للاختبارات الورقية. هذه الطرق تعاني من عدة تحديات جوهرية:
-*   **التكلفة والجهد اللوجستي:** عمليات الطباعة، التوزيع، الجمع، والتصحيح اليدوي تستهلك وقتاً وموارد كبيرة.
-*   **محدودية أنواع الأسئلة:** صعوبة تضمين وسائط متعددة (صور، فيديوهات) في الاختبارات التقليدية.
-*   **تحديات الأمان والنزاهة:** احتمالية تسريب الأسئلة أو الغش أثناء أداء الاختبار.
-*   **صعوبة التحليل:** عدم القدرة على استخلاص تحليلات إحصائية دقيقة حول أداء الطلاب أو فعالية الأسئلة.
-*   **الأثر البيئي:** استهلاك كميات كبيرة من الورق.
-
-منصة "Quizzy" جاءت كحل لهذه التحديات، حيث توفر بيئة رقمية آمنة، منظمة، وقابلة للتطوير، تخدم متطلبات العملية التعليمية الحديثة.
-
-### **1.4. الجمهور المستهدف (Target Audience)**
-*   **المؤسسات التعليمية:** المدارس، الجامعات، والمعاهد التي تسعى لرقمنة عمليات التقييم.
-*   **المدرسون:** لتسهيل عملية إنشاء وتصحيح الاختبارات ومتابعة أداء الطلاب.
-*   **الطلاب:** لتوفير تجربة اختبار مرنة وحديثة يمكن الوصول إليها من أي مكان.
-*   **المسؤولون الأكاديميون:** للإشراف على النظام وإدارة المستخدمين والسياسات.
+1. [Overview](#-overview)
+2. [The Problem We're Solving](#-the-problem-were-solving)
+3. [Key Features](#-key-features)
+4. [System Architecture](#-system-architecture)
+5. [Technology Stack](#-technology-stack)
+6. [Data Model](#-data-model)
+7. [Application Routes](#-application-routes)
+8. [Project Structure](#-project-structure)
+9. [Getting Started](#-getting-started)
+10. [Environment Variables](#-environment-variables)
+11. [AI-Powered Import](#-ai-powered-import)
+12. [Security Model](#-security-model)
+13. [UI/UX Design System](#-uiux-design-system)
+14. [Roadmap](#-roadmap)
 
 ---
 
-## **2. تحليل الميزات والوظائف (Features & Functionality)**
+## 🎯 Overview
 
-تنقسم المنصة إلى ثلاث واجهات رئيسية، كل منها مصمم خصيصاً لتلبية احتياجات دوره المحدد.
+**Quizzy** is a comprehensive, enterprise-grade academic examination platform engineered to replace paper-based testing with a seamless digital experience. It delivers **three purpose-built portals** — one for each role — backed by a Firebase BaaS infrastructure and augmented by Google Genkit AI for intelligent question importing.
 
-### **2.1. واجهة الطالب (Student Interface)**
+### Role-Based Capability Matrix
 
-هي البوابة التي يتفاعل من خلالها الطالب مع النظام. تم تصميمها لتكون بسيطة ومركزة على المهام الأساسية.
+| Capability | 🎓 Student | 📚 Teacher | 🛡️ Admin |
+|---|:---:|:---:|:---:|
+| Take live timed exams | ✅ | — | — |
+| Auto-save progress to `localStorage` | ✅ | — | — |
+| View graded results with answer review | ✅ | — | — |
+| Flag questions for review during exam | ✅ | — | — |
+| Print/download achievement certificate | ✅ | — | — |
+| Create & schedule exams with time windows | — | ✅ | — |
+| Build & manage personal question bank | — | ✅ | — |
+| AI bulk import from Excel/CSV (Genkit) | — | ✅ | — |
+| Share exams via unique link or QR Code | — | ✅ | — |
+| View per-exam student analytics | — | ✅ | — |
+| Manage all platform users & roles | — | — | ✅ |
+| System-wide statistics dashboard | — | — | ✅ |
 
-*   **لوحة التحكم (`/student`):**
-    *   **تحليلات آخر امتحان:** تعرض بطاقات تحليلية لأداء الطالب في آخر امتحان أنهاه، تشمل (النتيجة، الترتيب في الفصل - *كميزة مقترحة*، عدد الإجابات الصحيحة).
-    *   **عرض سريع لآخر الامتحانات:** قائمة بآخر 3 امتحانات مكتملة مع نتيجتها وزر لمراجعة التفاصيل.
-
-*   **قائمة الاختبارات (`/student/exams`):**
-    *   **عرض شامل:** تعرض جميع الاختبارات المتاحة للطالب في بطاقات منفصلة.
-    *   **حالات الاختبار الديناميكية:** كل بطاقة اختبار تعرض حالتها الحالية بناءً على الوقت وبيانات الطالب:
-        *   `Scheduled` (مجدول): للامتحانات التي لم يبدأ وقتها بعد (الزر معطل).
-        *   `Start Now` (ابدأ الآن): للامتحانات المتاحة والتي لم يبدأها الطالب بعد.
-        *   `In Progress` (قيد التنفيذ): إذا كان الطالب قد بدأ الاختبار ولم يكمله (يتم الكشف عن ذلك من خلال `localStorage`).
-        *   `Retake Available` (إعادة المحاولة متاحة): إذا انتهى وقت الامتحان ولكن لا يزال لدى الطالب محاولات متبقية.
-        *   `Completed` (مكتمل): إذا أنهى الطالب جميع محاولاته.
-        *   `Expired` (منتهي الصلاحية): إذا انتهى وقت الامتحان ولم يقم الطالب بأي محاولة.
-    *   **معلومات البطاقة:** تعرض كل بطاقة (العنوان، المادة، عدد الأسئلة، مدة الاختبار، عدد المحاولات).
-
-*   **صفحة أداء الاختبار (`/student/exam/[id]`):**
-    *   **واجهة تفاعلية:** تم بناؤها باستخدام `Framer Motion` لإضفاء تأثيرات بصرية سلسة عند التنقل بين الأسئلة.
-    *   **المؤقت الزمني (Timer):** عد تنازلي يوضح الوقت المتبقي، وعندما يقترب من النهاية يتغير لونه لتنبيه الطالب. يتم إرسال الاختبار تلقائياً عند انتهاء الوقت.
-    *   **حفظ تلقائي للتقدم (Auto-Save):** كل 30 ثانية، يتم حفظ حالة الاختبار (الإجابات الحالية، الوقت المتبقي) في `localStorage`. هذا يضمن عدم فقدان أي بيانات في حال حدوث مشكلة تقنية (مثل انقطاع الإنترنت أو إغلاق المتصفح).
-    *   **شريط التنقل بين الأسئلة:** شبكة من الأزرار تمثل جميع أسئلة الاختبار. يتغير لون الزر ليعكس حالة السؤال (تمت الإجابة عليه، محدد للمراجعة، السؤال الحالي)، مما يتيح للطالب التنقل السريع بين الأسئلة.
-    *   **تمييز الأسئلة للمراجعة:** يمكن للطالب تحديد سؤال معين للعودة إليه لاحقاً، حيث يتم تمييزه بلون مختلف.
-
-*   **صفحة النتائج (`/student/results/[id]`):**
-    *   **ملخص الأداء:** تعرض النتيجة الإجمالية، النسبة المئوية، الوقت المستغرق، وحالة النجاح أو الرسوب.
-    *   **مراجعة تفصيلية للإجابات:** قائمة منسدلة (`Accordion`) تعرض كل سؤال، إجابة الطالب، والإجابة الصحيحة مع توضيح بصري (أيقونة صح أو خطأ).
-    *   **إجراءات ما بعد الاختبار:** أزرار للعودة للوحة التحكم، إعادة الامتحان (إذا كان متاحاً)، أو عرض الشهادة (في حال النجاح).
-
-*   **صفحة الشهادة (`/certificate/[id]`):**
-    *   **شهادة إلكترونية:** تصميم احترافي لشهادة إتمام، تحتوي على اسم الطالب، اسم الاختبار، تاريخ الإكمال، والنتيجة.
-    *   **جاهزة للطباعة:** تم استخدام `@media print` CSS لضمان أن تكون الشهادة قابلة للطباعة بشكل مثالي دون ظهور عناصر الواجهة الأخرى (مثل الأزرار).
-
-### **2.2. واجهة المدرس (Teacher Interface)**
-
-مركز التحكم الكامل للمدرس لإدارة العملية التعليمية.
-
-*   **لوحة التحكم (`/teacher`):**
-    *   **إحصائيات سريعة:** بطاقات تعرض (عدد الاختبارات التي تم إنشاؤها، عدد الإجابات التي تحتاج لمراجعة يدوية - *كميزة مستقبلية*).
-    *   **قائمة الاختبارات المُدارة:** عرض لجميع الاختبارات التي أنشأها المدرس، مع توضيح حالتها (مجدول، قيد التنفيذ، مكتمل).
-
-*   **إنشاء اختبار (`/teacher/create`):**
-    *   **نموذج متكامل:** تم بناؤه باستخدام `React Hook Form` و `Zod` للتحقق الفوري من صحة المدخلات.
-    *   **تفاصيل الاختبار:** حقول لتحديد (العنوان، المادة، مدة الاختبار بالدقائق).
-    *   **جدولة الاختبار:** استخدام مكونات تقويم (`Calendar`) وساعة لاختيار تاريخ ووقت بدء وانتهاء الاختبار بدقة.
-    *   **سياسات الاختبار:** تحديد عدد المحاولات المسموح بها، وسياسة احتساب الدرجة (أعلى درجة، متوسط الدرجات).
-    *   **إضافة الأسئلة ديناميكياً:**
-        *   يمكن للمدرس إضافة عدد غير محدود من الأسئلة.
-        *   لكل سؤال، يحدد (النص، النوع، عدد النقاط، والإجابة الصحيحة).
-        *   الواجهة تتغير ديناميكياً بناءً على نوع السؤال المختار (MCQ, True/False, Short Text).
-        *   إمكانية إضافة رابط صورة لكل سؤال.
-    *   **استيراد الأسئلة من ملف (Bulk Import):** ميزة متقدمة تستخدم **Genkit (AI)** لتحليل ملفات Excel/CSV. يقوم المدرس برفع ملف، ويقوم النظام بتحليله واستخراج الأسئلة وإضافتها مباشرة إلى النموذج.
-
-*   **إدارة الاختبارات (ضمن لوحة التحكم):**
-    *   **مشاركة الاختبار:** لكل اختبار، يمكن للمدرس إنشاء رابط فريد أو `QR Code` لمشاركته مع الطلاب.
-    *   **عرض النتائج:** رابط لصفحة تحليل نتائج كل اختبار، تعرض أداء جميع الطلاب.
-    *   **حذف الاختبار:** مع رسالة تأكيد لضمان عدم الحذف عن طريق الخطأ.
-
-*   **بنك الأسئلة (`/teacher/question-bank`):**
-    *   **مستودع مركزي:** جدول يعرض جميع الأسئلة التي أنشأها المدرس، مع إمكانية البحث والفلترة حسب المادة أو نوع السؤال.
-    *   **إعادة الاستخدام:** يمكن للمدرس مستقبلاً اختيار أسئلة من البنك وإضافتها إلى اختبارات جديدة بسهولة.
-
-### **2.3. واجهة المسؤول (Admin Interface)**
-
-نظرة شاملة على المنصة بأكملها.
-
-*   **لوحة التحكم (`/admin`):**
-    *   **نظرة عامة على النظام:** إحصائيات حول (إجمالي المستخدمين، إجمالي الاختبارات، النشاط الحالي).
-
-*   **إدارة المستخدمين (`/admin/users`):**
-    *   **جدول بيانات تفاعلي:** يعرض جميع المستخدمين في النظام.
-    *   **العمليات الأساسية:** إضافة، تعديل، وحذف المستخدمين.
-    *   **تعيين الأدوار:** تغيير دور المستخدم (من طالب إلى مدرس مثلاً).
-    *   **بحث وفلترة:** للوصول السريع إلى مستخدم معين.
+> **Design Principle:** Each portal is rendered inside a role-isolated layout group. A student navigating to `/teacher/create` is automatically redirected — this is enforced both client-side (layout guard) and server-side (Firestore Security Rules).
 
 ---
 
-## **3. الهندسة التقنية والبنية التحتية (Technical Architecture)**
+## 🚧 The Problem We're Solving
 
-### **3.1. التقنيات الأساسية (Core Technologies)**
+Educational institutions worldwide still rely on paper-based examinations — a process riddled with inefficiencies:
 
-| الفئة              | التقنية المستخدمة                                | السبب                                                                                                                                                             |
-| ----------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **إطار العمل**       | `Next.js 14+ (App Router)`                       | للأداء العالي (Server Components)، تنظيم المسارات، وتحسين تجربة المطور (DX).                                                                                    |
-| **لغة البرمجة**     | `TypeScript`                                     | لضمان سلامة الأنواع (Type Safety) وتقليل الأخطاء البرمجية في المشاريع الكبيرة.                                                                                |
-| **تصميم الواجهة**   | `Tailwind CSS` + `ShadCN UI`                     | لسرعة بناء واجهات مستخدم احترافية ومتجاوبة، مع إمكانية تخصيص عالية.                                                                                                |
-| **قاعدة البيانات**    | `Firebase Firestore`                             | قاعدة بيانات NoSQL مرنة، قابلة للتوسع، وتدعم التحديثات في الوقت الفعلي (Real-time)، مما يسهل بناء ميزات تفاعلية.                                                |
-| **المصادقة**        | `Firebase Authentication`                        | نظام مصادقة آمن وجاهز للاستخدام، يدعم多种 طرق تسجيل الدخول.                                                                                                |
-| **إدارة النماذج**    | `React Hook Form` + `Zod`                        | لتوفير تجربة مستخدم ممتازة في النماذج مع التحقق الفوري من البيانات دون إعادة تحميل الصفحة (re-renders).                                                           |
-| **الذكاء الاصطناعي** | `Google Genkit`                                  | إطار عمل من Google لتسهيل دمج نماذج الذكاء الاصطناعي (مثل Gemini) في التطبيقات، استخدمناه في ميزة استيراد الأسئلة.                                              |
+| Pain Point | Impact |
+|---|---|
+| **Logistics overhead** | Printing, distributing, collecting, and manually grading papers consumes enormous staff time |
+| **Limited question formats** | Paper cannot embed multimedia (images, video, audio) effectively |
+| **Security & integrity risks** | Paper exams are vulnerable to leaks and in-room cheating |
+| **No real-time analytics** | Impossible to quickly extract per-student or per-question performance data |
+| **Environmental cost** | High paper and printing resource consumption |
 
-### **3.2. بنية الواجهة الأمامية (Frontend Architecture)**
-
-*   **`App Router`:** تم تنظيم الصفحات والمكونات باستخدام بنية المجلدات الخاصة بـ `App Router`.
-    *   `/(app)`: مجموعة مسارات تحتوي على الصفحات المحمية التي تتطلب تسجيل الدخول.
-    *   `/(auth)`: مجموعة مسارات لصفحات المصادقة (تسجيل الدخول، التسجيل).
-    *   `[...id]`: استخدام المسارات الديناميكية لعرض صفحات الاختبارات والنتائج بناءً على معرّفاتها.
-*   **`Server Components` vs `Client Components`:**
-    *   **Server Components:** تم استخدامها كإعداد افتراضي للصفحات التي تعرض بيانات ثابتة أو لا تتطلب تفاعلاً كبيراً، لتقليل حجم JavaScript المُرسَل للمتصفح.
-    *   **Client Components (`'use client'`):** تم استخدامها للمكونات التفاعلية التي تحتوي على `hooks` مثل `useState`, `useEffect` أو تتعامل مع أحداث المستخدم (مثل نماذج إنشاء الاختبار وصفحات أداء الاختبار).
-*   **المكونات القابلة لإعادة الاستخدام:** تم بناء واجهة المستخدم على أساس مكونات صغيرة ومعزولة في مجلد `src/components/ui`.
-
-### **33. بنية الواجهة الخلفية (Backend Architecture)**
-
-تم الاعتماد بشكل كامل على **Firebase** كـ "Backend as a Service" (BaaS).
-
-*   **`Firestore`:** قاعدة البيانات الأساسية للمشروع.
-*   **`Firebase Authentication`:** لإدارة هويات المستخدمين.
-*   **`Firestore Security Rules`:** العمود الفقري لأمان التطبيق، حيث يتم تعريف صلاحيات القراءة والكتابة لكل جزء من قاعدة البيانات.
+**Quizzy** resolves all of the above in a single, unified platform: secure, real-time, analytics-ready, and fully digital.
 
 ---
 
-## **4. تصميم وتطبيق المفاهيم البرمجية (Software Design & Implementation)**
+## ✨ Key Features
 
-### **4.1. نموذج البيانات في Firestore (Data Model)**
+### 🎓 Student Portal
 
-تم تصميم هيكل البيانات بشكل يضمن الكفاءة، الأمان، وقابلية التوسع.
+#### Exam Dashboard (`/student`)
+- Analytics cards for the *last completed exam*: score, class rank *(upcoming)*, correct answers count
+- Quick-view list of the 3 most recent exam results with direct links
 
-```json
-{
-  "users": {
-    "{userId}": {
-      "id": "string",
-      "email": "string",
-      "role": "student | teacher | admin",
-      "photoURL": "string (optional)"
+#### Exam List (`/student/exams`)
+Dynamic status cards computed in real-time from exam schedule and student attempt data:
+
+| Status | Color | Condition |
+|---|---|---|
+| `Scheduled` | 🔵 Blue | Exam window hasn't opened yet — button disabled |
+| `Start Now` | 🟢 Green | Window is open, no attempt started yet |
+| `In Progress` | 🟡 Yellow | Attempt detected in `localStorage` |
+| `Retake Available` | 🟠 Orange | Attempt completed but retakes remain & window is open |
+| `Completed` | ⚫ Grey | All allowed attempts exhausted |
+| `Expired` | 🔴 Red | Window closed with no completed attempt |
+
+#### Exam Engine (`/student/exam/[id]`)
+- **Animated question transitions** powered by `Framer Motion`
+- **Countdown timer** with color-shift warning at < 2 minutes remaining
+- **Auto-submit** when timer reaches zero
+- **Auto-save every 30 seconds** to `localStorage` — survives browser crashes or network loss
+- **Question Navigator Panel** — grid of numbered buttons, color-coded by state (answered / flagged / current)
+- **Flag for Review** — mark any question to revisit before final submission
+
+#### Results & Certificate (`/student/results/[id]`, `/certificate/[id]`)
+- Score summary: raw score, percentage, time taken, pass/fail badge
+- Full accordion-style answer review with ✅/❌ indicators and correct answer reveal
+- Printable digital certificate with unique verification code (`@media print` optimized)
+
+---
+
+### 📚 Teacher Portal
+
+#### Teacher Dashboard (`/teacher`)
+- All created exams table with live status badges
+- Quick stats: total exams, pending manual review count *(future: essay grading)*
+- Per-exam actions: View Analytics, Share (link + QR Code), Delete with confirmation
+
+#### Exam Builder (`/teacher/create`)
+Built with `React Hook Form` + `Zod` for real-time, schema-driven validation:
+- Exam metadata: title, subject, duration (minutes)
+- **Scheduling:** Date-time pickers for open/close window
+- **Exam policies:** max attempts, scoring method (`highest` or `average` across retakes)
+- **Dynamic question editor:** supports 3 question types:
+  - `Multiple Choice` — 4 options, radio-select the correct one
+  - `True / False` — toggle switch
+  - `Short Text` — open-ended expected answer
+- Optional image URL per question
+- **Bulk import via AI** (see [AI-Powered Import](#-ai-powered-import))
+
+#### Question Bank (`/teacher/question-bank`)
+Centralized personal question repository with search and filter capabilities, enabling question reuse across multiple exams.
+
+---
+
+### 🛡️ Admin Portal
+
+#### System Dashboard (`/admin`)
+- Platform-wide aggregated stats: total users, total exams, currently active exams, latest registrations
+
+#### User Management (`/admin/users`)
+Full CRUD operations on system users via an interactive data table:
+- Add, edit role, and delete users
+- Search by name/email, filter by role
+- Role assignment: instantly promote a student account to teacher
+
+---
+
+## 🏗️ System Architecture
+
+### High-Level Architecture
+
+```mermaid
+graph TB
+    subgraph "Client Layer (Browser)"
+        UI["Next.js 15 App Router
+        React Server + Client Components"]
+        LS["localStorage
+        Exam session cache (DS6)"]
+    end
+
+    subgraph "Application Layer"
+        SC["Server Components
+        SSR / Data Fetching"]
+        AR["API Routes
+        /api/grade · /api/genkit/parseQuestions"]
+    end
+
+    subgraph "Firebase Platform"
+        FA["Firebase Auth
+        Email/Password + OAuth ready"]
+        FS["Cloud Firestore
+        Primary NoSQL Database"]
+        FSR["Firestore Security Rules
+        Server-enforced authorization"]
+    end
+
+    subgraph "AI Layer"
+        GK["Google Genkit
+        parseQuestionsFlow"]
+        GM["Gemini 1.5 Flash
+        Structured JSON output"]
+    end
+
+    UI --> SC
+    UI --> AR
+    UI <--> LS
+    SC --> FA
+    SC --> FS
+    AR --> FS
+    AR --> GK
+    FS <--> FSR
+    GK --> GM
+```
+
+### Exam Execution Sequence
+
+```mermaid
+sequenceDiagram
+    participant S as Student
+    participant NC as Next.js Client
+    participant NS as API Route /api/grade
+    participant FS as Firestore
+    participant LS as localStorage
+
+    S->>NC: Navigate to /student/exam/[id]
+    NC->>FS: getDoc(exams/{id}) — fetch config
+    NC->>FS: getDocs(questions) — NO correctAnswer field
+    FS-->>NC: Sanitized question list
+    NC-->>S: Render Exam UI + start timer
+
+    loop Every 30 seconds
+        S->>LS: Save { answers, timeRemaining }
+    end
+
+    S->>NS: POST /api/grade { examId, answers, timeTaken }
+    NS->>FS: getDocs(questions) — WITH correctAnswer
+    NS->>NS: Compute scores, isCorrect, percentage, passed
+    NS->>FS: Write studentExam + studentAnswers
+    NS-->>S: { score, percentage, passed, certificateId? }
+    S->>LS: Clear session entry
+```
+
+### Exam Status State Machine
+
+```mermaid
+stateDiagram-v2
+    [*] --> Scheduled : startTime in future
+    Scheduled --> Active : startTime reached
+    Active --> InProgress : Student starts attempt
+    InProgress --> Completed : Submit / Timer expires
+    Active --> Expired : endTime reached (no attempt)
+    InProgress --> Expired : endTime reached mid-attempt
+    Completed --> RetakeAvailable : attemptsUsed < maxAttempts AND window still open
+    RetakeAvailable --> InProgress : Student starts new attempt
+    Completed --> [*] : All attempts used
+    Expired --> [*]
+```
+
+---
+
+## 🛠️ Technology Stack
+
+| Layer | Technology | Version | Rationale |
+|---|---|---|---|
+| **Framework** | Next.js (App Router) | 15.5.9 | RSC for server-side data fetching, nested layout isolation per role, Turbopack for fast DX |
+| **Language** | TypeScript | ^5.x | Compile-time safety; Zod schemas shared between form validation and server-side grading |
+| **Styling** | Tailwind CSS | ^3.4 | Utility-first, pairs perfectly with ShadCN's class-based theming system |
+| **UI Library** | ShadCN UI (Radix UI) | Latest | Accessible, headless, fully owned in codebase — complete customization control |
+| **Animations** | Framer Motion | ^11.x | Smooth question transitions and staggered dashboard animations |
+| **Database** | Firebase Firestore | ^11.x | NoSQL real-time; sub-collections match exam→questions hierarchy naturally |
+| **Auth** | Firebase Auth | ^11.x | Battle-tested; supports Email/Password today + Google/SSO tomorrow with zero refactoring |
+| **Forms** | React Hook Form + Zod | ^7.x + ^3.x | Zero-rerender uncontrolled inputs; single Zod schema used for both form and API validation |
+| **Data Tables** | TanStack Table | ^8.x | Headless, virtualization-ready; ideal for large user/results lists |
+| **Charts** | Recharts | ^2.x | React-native charting for analytics dashboards |
+| **AI** | Google Genkit + Gemini 1.5 Flash | ^1.20 | Firebase-native AI framework; typed I/O flows; structured output for document→JSON tasks |
+| **QR Code** | qrcode.react | ^3.x | SVG-based accessible QR generation for exam sharing |
+| **File Parsing** | xlsx | ^0.18 | Server-side Excel/CSV parsing inside the Genkit flow |
+| **Global State** | Zustand | ^4.5 | Minimal boilerplate; replaces Context prop-drilling for theme, direction, user data |
+| **Email** | Resend | ^3.x | Transactional email for future notification features |
+
+---
+
+## 🗄️ Data Model
+
+### Entity Relationship Diagram
+
+```mermaid
+erDiagram
+    USER {
+        string userId PK
+        string email
+        string name
+        string role
+        string photoURL
+        timestamp createdAt
     }
-  },
-  "exams": {
-    "{examId}": {
-      "id": "string",
-      "title": "string",
-      "subject": "string",
-      "duration": "number",
-      "teacherId": "{userId}", // Denormalized for security rules
-      "questionsCount": "number",
-      "startTime": "Timestamp",
-      "endTime": "Timestamp"
-    },
-    // Sub-collection for questions
-    "{examId}/questions": {
-      "{questionId}": {
-        "text": "string",
-        "type": "multiple-choice | ...",
-        "answer": "string | boolean",
-        "points": "number",
-        "options": ["...", "..."]
-      }
+    EXAM {
+        string examId PK
+        string teacherId FK
+        string title
+        string subject
+        int duration
+        int maxAttempts
+        string scoringPolicy
+        timestamp startTime
+        timestamp endTime
+        int questionsCount
     }
-  },
-  "studentExams": {
-    // This collection can be used to store results if not using localStorage
-    "{studentExamId}": {
-      "studentId": "{userId}",
-      "examId": "{examId}",
-      "score": "number",
-      "answers": [
-        { "questionId": "string", "answer": "..." }
-      ]
+    QUESTION {
+        string questionId PK
+        string examId FK
+        string text
+        string type
+        string correctAnswer
+        int points
+        string imageUrl
+        int orderIndex
     }
-  }
+    OPTION {
+        string optionId PK
+        string questionId FK
+        string text
+        boolean isCorrect
+    }
+    STUDENT_EXAM {
+        string studentExamId PK
+        string studentId FK
+        string examId FK
+        int attemptNumber
+        float score
+        float totalPoints
+        float percentage
+        boolean passed
+        string status
+        timestamp startedAt
+        timestamp submittedAt
+        int timeTaken
+    }
+    STUDENT_ANSWER {
+        string studentAnswerId PK
+        string studentExamId FK
+        string questionId FK
+        string givenAnswer
+        boolean isCorrect
+        float pointsEarned
+    }
+    CERTIFICATE {
+        string certificateId PK
+        string studentExamId FK
+        string studentId FK
+        string examId FK
+        string verificationCode
+        timestamp issuedAt
+    }
+    QUESTION_BANK {
+        string qbId PK
+        string teacherId FK
+        string subject
+        string text
+        string type
+        string correctAnswer
+        int points
+    }
+    EXAM_SHARE {
+        string shareId PK
+        string examId FK
+        string shareToken
+        string qrCodeUrl
+    }
+    IMPORT_JOB {
+        string jobId PK
+        string teacherId FK
+        string fileName
+        string status
+        int questionsImported
+        string errorMessage
+    }
+
+    USER ||--o{ EXAM : "creates"
+    USER ||--o{ STUDENT_EXAM : "attempts"
+    USER ||--o{ QUESTION_BANK : "owns"
+    USER ||--o{ IMPORT_JOB : "triggers"
+    EXAM ||--|{ QUESTION : "contains"
+    EXAM ||--o{ STUDENT_EXAM : "attempted via"
+    EXAM ||--o| EXAM_SHARE : "has share"
+    QUESTION ||--o{ OPTION : "has choices"
+    QUESTION ||--o{ STUDENT_ANSWER : "answered in"
+    STUDENT_EXAM ||--|{ STUDENT_ANSWER : "contains"
+    STUDENT_EXAM ||--o| CERTIFICATE : "generates on pass"
+```
+
+### Firestore Collection Structure
+
+```
+Firestore Root
+│
+├── users/{userId}                   ← All platform users
+├── exams/{examId}                   ← All exams
+│   └── questions/{questionId}       ← Sub-collection (correctAnswer guarded by rules)
+├── studentExams/{studentExamId}     ← All attempt records
+├── questionBank/{qbId}              ← Teacher question repositories
+├── certificates/{certificateId}     ← Issued pass certificates
+├── examShares/{shareId}             ← QR + URL share tokens
+└── importJobs/{jobId}               ← AI import audit log
+```
+
+> **Security Note:** The `correctAnswer` field on `QUESTION` documents is **never sent to the browser** during exam execution. It is only accessed server-side in the API Route grading pipeline — enforced by both field masking and Firestore Security Rules.
+
+---
+
+## 🗺️ Application Routes
+
+```mermaid
+graph LR
+    Root["/"] --> Login
+
+    subgraph "Public"
+        Login["/ — Login / Landing"]
+        Register["/register — Sign Up"]
+        Certificate["/certificate/[id]"]
+    end
+
+    subgraph "Student Protected"
+        SD["/student"]
+        SE["/student/exams"]
+        SEX["/student/exam/[id]"]
+        SR["/student/results/[id]"]
+    end
+
+    subgraph "Teacher Protected"
+        TD["/teacher"]
+        TC["/teacher/create"]
+        TQB["/teacher/question-bank"]
+        TR["/teacher/results/[examId]"]
+    end
+
+    subgraph "Admin Protected"
+        AD["/admin"]
+        AU["/admin/users"]
+    end
+
+    Login --> SD
+    Login --> TD
+    Login --> AD
+```
+
+| Route | Access | Description |
+|---|---|---|
+| `/` | Public | Landing page + Login form |
+| `/register` | Public | Sign-up form |
+| `/student` | Student | Dashboard with recent exam analytics |
+| `/student/exams` | Student | All available exams with status cards |
+| `/student/exam/[id]` | Student | Live exam execution engine |
+| `/student/results/[id]` | Student | Graded result + answer review |
+| `/certificate/[id]` | Public | Printable achievement certificate |
+| `/teacher` | Teacher | Dashboard with exam management table |
+| `/teacher/create` | Teacher | Full exam builder form |
+| `/teacher/question-bank` | Teacher | Personal question repository |
+| `/teacher/results/[examId]` | Teacher | All student attempts analytics |
+| `/admin` | Admin | System-wide statistics |
+| `/admin/users` | Admin | User CRUD + role management |
+| `/profile` | All roles | User profile settings |
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx                    ← Root HTML shell, fonts, global providers
+│   ├── page.tsx                      ← Landing / Login page
+│   ├── globals.css                   ← Design tokens, CSS variables, Tailwind base
+│   │
+│   ├── (auth)/                       ← Public auth pages (no sidebar)
+│   │   └── register/page.tsx
+│   │
+│   ├── (app)/                        ← Protected pages (auth + role guard)
+│   │   ├── layout.tsx                ← Sidebar + Header + 2-stage auth guard
+│   │   ├── profile/page.tsx
+│   │   ├── student/
+│   │   │   ├── page.tsx              ← Student Dashboard
+│   │   │   ├── exams/page.tsx        ← Exam list with dynamic status
+│   │   │   ├── exam/[id]/page.tsx    ← Exam execution engine
+│   │   │   └── results/[id]/page.tsx ← Results + answer review
+│   │   ├── teacher/
+│   │   │   ├── page.tsx              ← Teacher Dashboard
+│   │   │   ├── create/page.tsx       ← Exam builder
+│   │   │   ├── question-bank/page.tsx
+│   │   │   └── results/[examId]/page.tsx
+│   │   └── admin/
+│   │       ├── page.tsx              ← System stats
+│   │       └── users/page.tsx        ← User management
+│   │
+│   ├── certificate/[id]/page.tsx     ← Public, print-ready certificate
+│   │
+│   └── api/
+│       └── genkit/parseQuestions/route.ts  ← AI import endpoint
+│
+├── ai/
+│   ├── genkit.ts                     ← Genkit instance + Gemini plugin config
+│   ├── dev.ts                        ← Local Genkit server entry
+│   └── flows/
+│       └── parseQuestionsFlow.ts     ← Typed AI flow with Zod I/O schema
+│
+├── components/
+│   ├── providers.tsx                 ← App context: theme, language direction
+│   ├── logo.tsx                      ← Quizzy brand mark
+│   ├── FirebaseErrorListener.tsx     ← Global error toast handler
+│   └── ui/                           ← All ShadCN UI primitives
+│
+├── firebase/
+│   ├── index.ts                      ← Firebase app initialization
+│   └── provider.tsx                  ← React context for auth + firestore instances
+│
+├── hooks/
+│   ├── useExamTimer.ts               ← Countdown timer with auto-submit
+│   ├── useExamSession.ts             ← localStorage save/restore/clear
+│   └── useRole.ts                    ← Reads current user role from Firestore
+│
+└── lib/
+    ├── types.ts                      ← All TypeScript interfaces and enums
+    ├── utils.ts                      ← Utility helpers (cn, formatters)
+    ├── constants.ts                  ← Pass threshold, role enum, config
+    └── schemas.ts                    ← Shared Zod schemas (form ↔ API)
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **Node.js** `>= 20.x`
+- **npm** `>= 10.x`
+- A **Firebase project** (Firestore + Authentication enabled)
+- A **Google AI API Key** (for Genkit / Gemini)
+
+### Installation
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/your-org/quizzy.git
+cd quizzy
+
+# 2. Install dependencies
+npm install
+
+# 3. Set up environment variables
+cp .env.example .env.local
+# → Fill in your Firebase config and GOOGLE_GENAI_API_KEY
+
+# 4. Start the development server (Turbopack)
+npm run dev
+# → App running at http://localhost:9002
+
+# 5. (Optional) Start Genkit AI dev server
+npm run genkit:dev
+# → Genkit UI at http://localhost:4000
+```
+
+### Available Scripts
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Start Next.js dev server with Turbopack on port `9002` |
+| `npm run build` | Build production bundle |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint checks |
+| `npm run typecheck` | TypeScript type-check without emitting |
+| `npm run genkit:dev` | Start Genkit development server |
+| `npm run genkit:watch` | Start Genkit with file watching |
+
+---
+
+## 🔐 Environment Variables
+
+Create a `.env.local` file in the project root with the following:
+
+```env
+# ── Firebase Client Config ─────────────────────────────────
+NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+
+# ── Google AI (Genkit / Gemini) ────────────────────────────
+GOOGLE_GENAI_API_KEY=your_gemini_api_key
+```
+
+> [!CAUTION]
+> Never commit `.env.local` to source control. The `GOOGLE_GENAI_API_KEY` is server-only and must never be prefixed with `NEXT_PUBLIC_`.
+
+---
+
+## 🤖 AI-Powered Import
+
+Quizzy integrates **Google Genkit** to allow teachers to import questions in bulk from existing Excel or CSV files — turning hours of manual entry into seconds.
+
+### How It Works
+
+```mermaid
+sequenceDiagram
+    actor T as Teacher
+    participant UI as Exam Builder
+    participant API as /api/genkit/parseQuestions
+    participant GK as parseQuestionsFlow (Genkit)
+    participant GM as Gemini 1.5 Flash
+
+    T->>UI: Upload .xlsx / .csv file
+    UI->>UI: FileReader → Base64 encode
+    UI->>API: POST { fileBase64, fileName }
+    API->>GK: runFlow(parseQuestionsFlow, input)
+    GK->>GK: xlsx.read() → JSON rows
+    GK->>GM: Prompt with JSON + Zod output schema
+    GM-->>GK: Structured question array
+    GK->>GK: Zod validate each question
+    GK-->>API: { questions[], importedCount, skippedCount }
+    API-->>UI: Parsed questions
+    UI->>UI: Populate RHF field array
+    T->>UI: Review & confirm import
+```
+
+### Expected Excel Format
+
+| Column | Required | Notes |
+|---|:---:|---|
+| `text` | ✅ | Full question text |
+| `type` | ✅ | `multiple-choice` / `true-false` / `short-text` |
+| `correctAnswer` | ✅ | Correct answer as a string |
+| `points` | ✅ | Integer — points awarded for correct answer |
+| `option1` – `option4` | ➡️ MCQ | Only required for `multiple-choice` type |
+| `imageUrl` | ❌ | Optional URL to a question image |
+
+---
+
+## 🔒 Security Model
+
+Security is enforced at **two independent layers** — neither can be bypassed:
+
+### Layer 1: Client-Side (UI Gating)
+- The `(app)/layout.tsx` checks the logged-in user's role from Firestore
+- Any mismatch between role and route triggers an immediate redirect
+- Navigation menus only render links valid for the current role
+
+### Layer 2: Server-Side (Firestore Security Rules)
+No client-side manipulation can circumvent these rules — they are evaluated by Firebase's servers.
+
+```javascript
+// Example: Only exam owner (teacher) can modify their exam
+match /exams/{examId} {
+  allow update, delete: if request.auth != null
+                        && resource.data.teacherId == request.auth.uid;
+}
+
+// Example: correctAnswer is in the document, but grading
+// only happens in the server-side API Route — never client-side
+match /exams/{examId}/questions/{questionId} {
+  allow read: if request.auth != null;
+  // write is restricted to the exam's teacher
+}
+
+// Example: Certificates are public read but server-write only
+match /certificates/{certificateId} {
+  allow read: if true;
+  allow write: if false; // Written only by API Route
 }
 ```
-**ملاحظات على التصميم:**
-*   **الأسئلة كـ Sub-collection:** وضع الأسئلة داخل مجموعة فرعية تحت كل اختبار يسهل استرجاعها مع الاختبار الخاص بها ويبسط قواعد الأمان.
-*   **`teacherId` في مستند الاختبار:** تم تكرار معرّف المالك (Denormalization) لتسهيل كتابة قواعد الأمان دون الحاجة إلى استعلامات إضافية.
 
-### **4.2. إدارة الحالة (State Management)**
+### Key Security Guarantees
 
-*   **`React Hooks` (`useState`, `useEffect`):** لإدارة الحالة المحلية للمكونات (Local State).
-*   **`React Context` (`useApp`):** تم إنشاء `AppContext` لتوفير بيانات عامة عبر التطبيق مثل (الثيم الحالي `dark/light`، اتجاه اللغة `ltr/rtl`).
-*   **`localStorage`:** تم استخدامه بذكاء لحفظ حالة الاختبار (الإجابات، الوقت المتبقي). هذا يمثل حلاً فعالاً من حيث التكلفة والأداء لإدارة حالة الاختبارات قيد التقدم دون الحاجة إلى كتابات مستمرة على قاعدة البيانات.
-
-### **43. التوجيه والتنقل (Routing)**
-*   تم استخدام **Next.js App Router** لتنظيم بنية الصفحات.
-*   تم استخدام **المسارات الديناميكية (Dynamic Routes)** لعرض صفحات الاختبارات والنتائج بناءً on `ID` الخاص بها (e.g., `/student/exam/[id]`).
-*   تم استخدام **مجموعات المسارات (Route Groups)** مثل `(app)` لفصل التخطيطات (Layouts) المحمية عن التخطيطات العامة.
-
-### **4.4. استيراد الأسئلة باستخدام الذكاء الاصطناعي (Genkit)**
-
-لتحسين تجربة المدرس، تم دمج ميزة استيراد الأسئلة من ملف Excel/CSV.
-
-*   **`parseQuestionsFlow`:** تم إنشاء `flow` باستخدام **Genkit**.
-*   **الخطوات:**
-    1.  يقوم المدرس برفع ملف من واجهة المستخدم.
-    2.  يتم تحويل محتوى الملف إلى صيغة `Base64` وإرساله إلى الـ `flow`.
-    3.  الـ `flow` يقوم بفك تشفير المحتوى واستخدام مكتبة `xlsx` لتحليل الملف وتحويله إلى صيغة JSON.
-    4.  يتم معالجة كل صف في الملف، التحقق من وجود الحقول الأساسية، وتنسيق البيانات لتطابق `QuestionSchema`.
-    5.  يتم إجراء تحقق إضافي باستخدام `Zod` لكل سؤال لضمان سلامة البيانات.
-    6.  الـ `flow` يعيد مصفوفة من الأسئلة الصالحة، والتي يتم إضافتها تلقائياً إلى نموذج إنشاء الاختبار.
-*   **الفائدة:** هذه الميزة توفر وقتاً هائلاً على المدرسين وتسمح لهم بإعادة استخدام بنوك الأسئلة الموجودة لديهم بسهولة.
+| Guarantee | Mechanism |
+|---|---|
+| `correctAnswer` never reaches the browser during exam | API Route grading + field masking |
+| Final score always computed server-side | Grading in `/api/grade`, never trusted from client |
+| Cross-role page access blocked | Layout guard + Firestore rule deny |
+| Users cannot escalate their own role | Firestore rule: only `admin` can write `role` field |
+| Certificates cannot be forged | Server-generated `verificationCode`, write-blocked on client |
 
 ---
 
-## **5. الأمان والصلاحيات (Security & Authorization)**
+## 🎨 UI/UX Design System
 
-### **5.1. المصادقة (Authentication)**
-*   عندما يقوم مستخدم جديد بالتسجيل، يتم إنشاء حساب له في **Firebase Authentication**.
-*   في نفس الوقت، يتم إنشاء مستند مقابل له في مجموعة `users` في Firestore يحتوي على دوره (`student`, `teacher`, `admin`).
+### Design Philosophy
+- **Clarity first:** Distraction-free exam environment. Every pixel serves a purpose.
+- **Consistency:** A unified visual language across all three portals.
+- **Responsive:** Works seamlessly from a 320px mobile screen to a 4K desktop monitor.
+- **Accessible:** Built on Radix UI primitives — keyboard navigable, ARIA-compliant.
 
-### **5.2. الصلاحيات (Authorization)**
-يتم التحكم في صلاحيات الوصول إلى البيانات والوظائف بشكل صارم على مستويين:
-1.  **الواجهة الأمامية (Client-Side):** يتم إظهار أو إخفاء عناصر الواجهة (مثل روابط التنقل أو الأزرار) بناءً on دور المستخدم الذي يتم قراءته من Firestore.
-2.  **الواجهة الخلفية (Server-Side):** وهو المستوى الأهم، حيث يتم فرض الصلاحيات عبر **Firestore Security Rules**.
+### Color Tokens
 
-### **5.3. قواعد أمان Firestore (Security Rules)**
-تم كتابة قواعد أمان (`firestore.rules`) مفصلة ودقيقة لضمان عدم وصول أي مستخدم إلى بيانات لا يملك صلاحية الوصول إليها.
+| Token | Light Mode | Dark Mode | Purpose |
+|---|---|---|---|
+| `--primary` | `hsl(221 83% 53%)` | `hsl(217 91% 60%)` | CTAs, active nav, links |
+| `--accent` | `hsl(262 83% 67%)` | `hsl(262 80% 72%)` | Logo highlight, badges |
+| `--background` | `hsl(0 0% 100%)` | `hsl(222 47% 11%)` | Page background |
+| `--muted` | `hsl(210 40% 96%)` | `hsl(217 32% 17%)` | Card surfaces |
+| `--destructive` | `hsl(0 72% 51%)` | `hsl(0 66% 55%)` | Errors, delete actions |
 
-**أمثلة على القواعد المطبقة:**
+### Typography
+| Role | Font | Weights |
+|---|---|---|
+| Headlines & Brand | `Poppins` (Google Fonts) | 600, 700 |
+| Body & UI Text | `PT Sans` (Google Fonts) | 400, 700 |
 
-*   **قاعدة تضمن أن المستخدم لا يمكنه تعديل ملفه الشخصي إلا هو:**
-    ```
-    match /users/{userId} {
-      allow update: if request.auth != null && request.auth.uid == userId;
-    }
-    ```
-*   **قاعدة تضمن أن المدرس فقط هو من يمكنه إنشاء اختبار، وأن يكون هو مالك الاختبار:**
-    ```
-    match /exams/{examId} {
-      allow create: if request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'teacher'
-                     && request.resource.data.teacherId == request.auth.uid;
-    }
-    ```
-*   **قاعدة تضمن أن الطالب لا يمكنه قراءة الأسئلة إلا إذا كان مصادقاً (مسجلاً دخوله):**
-    ```
-    match /exams/{examId}/questions/{questionId} {
-      allow get, list: if request.auth != null;
-    }
-    ```
-*   **قاعدة تمنع الطالب من رؤية إجابات الأسئلة (لأن حقل الإجابة لا يتم إرساله للواجهة الأمامية للطالب أثناء الاختبار).**
+### Motion Design (Framer Motion)
+
+| Element | Animation | Config |
+|---|---|---|
+| Exam question transitions | Slide + fade | `x: ±300, opacity: 0→1, 0.3s ease` |
+| Dashboard stat cards | Staggered fade-in | `staggerChildren: 0.08s` |
+| Result score reveal | Spring counter | `type: spring, stiffness: 80` |
+| Page entry | Fade | `opacity: 0→1, 0.2s` |
 
 ---
 
-## **6. تجربة المستخدم وتصميم الواجهة (UI/UX Design)**
+## 🗺️ Roadmap
 
-### **6.1. فلسفة التصميم**
-*   **البساطة والتركيز:** تصميم نظيف يركز على الوظائف الأساسية دون تشتيت.
-*   **الاتساق:** الحفاظ على هوية بصرية متسقة عبر جميع صفحات التطبيق.
-*   **الاستجابة (Responsiveness):** ضمان عمل المنصة بشكل مثالي على جميع أحجام الشاشات، من أجهزة الكمبيوتر المكتبية إلى الهواتف المحمولة.
-*   **الوضع الداكن (Dark Mode):** توفير وضع داكن مريح للعين، مع إمكانية التبديل بينه وبين الوضع الفاتح.
+### Version 1.0 — Current
+- [x] Role-based authentication (Student / Teacher / Admin)
+- [x] Full exam lifecycle: create → schedule → take → grade → review
+- [x] AI-powered bulk question import (Genkit + Gemini)
+- [x] Auto-save exam progress to localStorage
+- [x] Printable digital certificates with verification codes
+- [x] QR Code exam sharing
+- [x] Dark mode + RTL language support
 
-### **62. نظام التصميم (Design System)**
-*   **`ShadCN UI`:** تم استخدامه كنقطة انطلاق لبناء مكونات الواجهة. ShadCN ليس مكتبة مكونات تقليدية، بل هو مجموعة من المكونات القابلة لإعادة الاستخدام والتي يمكن نسخها وتخصيصها بالكامل، مما يمنحنا سيطرة كاملة على الكود.
-*   **`Tailwind CSS`:** تم استخدامه لتخصيص الأنماط بسرعة وكفاءة باستخدام نهج `utility-first`.
-*   **الألوان والخطوط:** تم تعريف نظام ألوان (`primary`, `secondary`, `accent`) وخطوط (`Poppins` للعناوين، `PT Sans` للنصوص) في ملف `globals.css` و `tailwind.config.ts` لضمان الاتساق.
+### Version 1.1 — In Planning
+- [ ] Teacher analytics dashboard with Recharts visualizations
+- [ ] Essay/short-answer AI grading (Gemini)
+- [ ] Student performance trend charts
+- [ ] Email notifications on exam assignment (Resend)
+
+### Version 2.0 — Future Vision
+- [ ] **Remote Proctoring:** Webcam-based attention monitoring via Gemini Vision
+- [ ] **LMS Integration:** Moodle and Blackboard compatible data export
+- [ ] **Multi-language UI:** Full English/Arabic interface toggle
+- [ ] **Accessibility Audit:** WCAG 2.1 AA compliance certification
 
 ---
 
-## **7. الخاتمة والتوجهات المستقبلية (Conclusion & Future Work)**
+## 📄 License
 
-مشروع **Quizzy** يمثل حلاً قوياً وعصرياً لمواجهة تحديات التقييم الأكاديمي في العصر الرقمي. بفضل اعتماده على تقنيات حديثة مثل Next.js و Firebase، واستخدامه لمفاهيم برمجية متقدمة، يقدم المشروع أساساً متيناً يمكن البناء عليه وتطويره مستقبلاً.
+Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for more information.
 
-**ميزات يمكن إضافتها مستقبلاً:**
-*   **التصحيح التلقائي للأسئلة المقالية:** باستخدام نماذج اللغة الكبيرة (LLMs) لتحليل الإجابات النصية.
-*   **مراقبة الاختبار عن بعد (Proctoring):** استخدام كاميرا الويب لاكتشاف محاولات الغش.
-*   **تحليلات أداء متقدمة:** لوحات تحكم تعرض رسوماً بيانية تفصيلية حول أداء الطلاب والمواد والأسئلة.
-*   **دعم متعدد اللغات:** إضافة اللغة الإنجليزية كلغة ثانية للواجهة.
-*   **تكامل مع أنظمة إدارة التعلم (LMS):** مثل Moodle أو Blackboard.
+---
+
+<div align="center">
+
+**Quizzy** — Built with ❤️ for educators and students everywhere.
+
+*Transforming how institutions assess, one exam at a time.*
 
 </div>
